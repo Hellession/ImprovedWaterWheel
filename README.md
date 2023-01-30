@@ -119,5 +119,19 @@ The max amount of role groups that can spawn on the Water Wheel. Now should be a
 
 A number ranging from `0 to 1`, which represents the chance for a blab to spawn on every slot. Defaults to `0.1%`.
 
+## Flatline Falloff Speed
+`maxFlatlineFalloffSpeed` - **Default: `5.9`**
+
+`minFlatlineFalloffSpeed` - **Default: `3.7`**
+
+The water wheel slows down to a halt at a certain speed. Up until v1.0.5, this speed was locked into place. You can customize the minimum and maximum of this fall off speed. I don't recommend setting it to a low value, as that will result in slow spins, with longer simulations at the start (aka longer stutters).
+
+## Arrow Slot Coverage
+`maxArrowheadSlotCoverage` - **Default: `0.4`**
+
+`minArrowheadSlotCoverage` - **Default: `0.15`**
+
+To flip to the next slot, the arrow's position has to cover a specific proportion of the next slot, while the arrow is rotating. Prior to v1.0.5, this proportion was locked to 35% of the next slot, but is now random every game. Setting this to 0 will cause the arrow to never rotate and always point in the same direction.
+
 # Code
 Coming soon. Hold on.
