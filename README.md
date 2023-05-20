@@ -5,7 +5,7 @@ Town of Salem mod that overhauls the Water Wheel scene to make it more unpredict
 For any issues regarding the mod, please seek help in this [Discord server](https://discord.gg/MZb8cUD).
 
 # License
-Improved Water Wheel mod is licensed under **GNU Lesser General Public License version 3** (shortened to **LGPLv3**).
+Improved Water Wheel mod is licensed under **[GNU Lesser General Public License version 3](https://www.gnu.org/licenses/lgpl-3.0.txt)** (shortened to **LGPLv3**).
 You are free to do anything you want, as long as it falls under the terms of this license.
 
 # Settings
