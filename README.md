@@ -4,6 +4,10 @@ Town of Salem mod that overhauls the Water Wheel scene to make it more unpredict
 # Support
 For any issues regarding the mod, please seek help in this [Discord server](https://discord.gg/MZb8cUD).
 
+# License
+Improved Water Wheel mod is licensed under **GNU Lesser General Public License version 3** (shortened to **LGPLv3**).
+You are free to do anything you want, as long as it falls under the terms of this license.
+
 # Settings
 ## oddsMode
 **Default: `2`**
@@ -132,6 +136,3 @@ The water wheel slows down to a halt at a certain speed. Up until v1.0.5, this s
 `minArrowheadSlotCoverage` - **Default: `0.15`**
 
 To flip to the next slot, the arrow's position has to cover a specific proportion of the next slot, while the arrow is rotating. Prior to v1.0.5, this proportion was locked to 35% of the next slot, but is now random every game. Setting this to 0 will cause the arrow to never rotate and always point in the same direction.
-
-# Code
-Coming soon. Hold on.
