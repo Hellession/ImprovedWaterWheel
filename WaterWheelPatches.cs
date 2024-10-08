@@ -3,7 +3,6 @@ using UnityEngine;
 using HarmonyLib;
 using BepInEx.Logging;
 using System.Reflection;
-using TMPro;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,6 +12,7 @@ using UnityEngine.U2D;
 using UnityEngine.UI;
 using Hellession;
 using System.IO;
+using TMPro;
 
 namespace UnpredictableWaterWheel
 {
@@ -261,10 +261,10 @@ namespace UnpredictableWaterWheel
                 roleLotInfos.Add(new RoleLotInfo(i, total, individual));
             }
             //TUBA'S MOD TEST!!! REMOVE LATER!
-            for (int i = 300; i < 304; i++)
+            //for (int i = 300; i < 304; i++)
             {
-                int individual = 10;
-                int total = 150;
+                //int individual = 10;
+                //int total = 150;
                 /*
                 switch (HLSNUtil.GetRandomInt(1, 15))
                 {
@@ -298,10 +298,10 @@ namespace UnpredictableWaterWheel
                 {
                     total = 510;
                 }*/
-                myRoleRandomable.chanceTable.Add(i, individual);
-                roleLotInfos.Add(new RoleLotInfo(i, total, individual));
+                //myRoleRandomable.chanceTable.Add(i, individual);
+                //roleLotInfos.Add(new RoleLotInfo(i, total, individual));
             }
-
+            /*
             for (int i = 305; i < 306; i++)
             {
                 int individual = 10;
@@ -341,6 +341,7 @@ namespace UnpredictableWaterWheel
                 myRoleRandomable.chanceTable.Add(i, individual);
                 roleLotInfos.Add(new RoleLotInfo(i, total, individual));
             }
+            */
             myService.ActiveGameState.CachedRoleLotInfo = roleLotInfos;
             Plugin.Log.LogInfo($"Passing role lot infos with {roleLotInfos.Count} items!!!");
             Traverse.Create(myService).Method("RaiseOnRoleLotsInfo", roleLotInfos).GetValue(roleLotInfos);
@@ -1948,19 +1949,22 @@ namespace UnpredictableWaterWheel
             //POTENTIAL SOLUTION: Create an entire fucking shader to deal with this. It has to be very small, just set all the color to full white when alpha color is above 1 / 255... Hopefully it works in combination with ChangeA of HLSNAnimator...
 
             //LogWaterWheelInfo($"t");
+            //this is the role flash image and I decided to get rid of it for now.
+            /*
             Image roleFlashImage = Image.Instantiate(largeRoleIcon, largeRoleIcon.transform);
             roleFlashImage.rectTransform.anchorMin = Vector2.zero;
             roleFlashImage.rectTransform.anchorMax = Vector2.one;
             roleFlashImage.rectTransform.sizeDelta = Vector2.zero;
             roleFlashImage.rectTransform.localPosition = Vector2.zero;
             roleFlashImage.sprite = largeRoleIcon.sprite;
+            */
             //LogWaterWheelInfo($"tasdr");
-            var mat = myBundle.LoadAsset<Material>("BMGRoleFlash.mat");
-            if(mat is null)
-                Plugin.Log.LogError($"MAT IS NULL! NOT FOUND!");
-            mat.SetFloat("_MaskCutoff", 0.01f);
+            //var mat = myBundle.LoadAsset<Material>("BMGRoleFlash.mat");
+            //if(mat is null)
+            //    Plugin.Log.LogError($"MAT IS NULL! NOT FOUND!");
+            //mat.SetFloat("_MaskCutoff", 0.01f);
             //LogWaterWheelInfo($"123123");
-            roleFlashImage.material = mat;
+            //roleFlashImage.material = mat;
             largeRoleIcon.color = new Color(1, 1, 1, 0);
             ghostRoleIcon.color = new Color(1, 1, 1, 0);
             largeRoleIcon.rectTransform.localScale = new Vector2(1.4f, 1.25f);
@@ -1992,7 +1996,8 @@ namespace UnpredictableWaterWheel
             //LogWaterWheelInfo($"{roleCardNewGO.name} is active itself? {roleCardNewGO.gameObject.activeSelf}. Active in hierarchy? {roleCardNewGO.gameObject.activeInHierarchy}. The rectTransform local position is: {roleCardNewGO.transform.localPosition}, size delta is: {((RectTransform)roleCardNewGO.transform).sizeDelta}, anchor min: {((RectTransform)roleCardNewGO.transform).anchorMin}, anchor max: {((RectTransform)roleCardNewGO.transform).anchorMax}, scale: {((RectTransform)roleCardNewGO.transform).localScale}");
             //LogWaterWheelInfo($"{instance.RoleName.name} is active itself? {instance.RoleName.gameObject.activeSelf}. Active in hierarchy? {instance.RoleName.gameObject.activeInHierarchy}. The rectTransform local position is: {instance.RoleName.rectTransform.localPosition}, size delta is: {instance.RoleName.rectTransform.sizeDelta}, anchor min: {instance.RoleName.rectTransform.anchorMin}, anchor max: {instance.RoleName.rectTransform.anchorMax}, scale: {instance.RoleName.rectTransform.localScale}");
             roleCardNewGO.transform.localPosition = new Vector3(sizes.width / 2f + sizes.width / 3f, sizes.height / 2f - sizes.height * 0.05f);
-
+            
+            /*
             yield return Plugin.MyAnimator.AnimateGraphics(new HLSNAnimationRequest
             {
                 Type = HLSNAnimator.AnimationType.ChangeA,
@@ -2001,9 +2006,11 @@ namespace UnpredictableWaterWheel
                 ColorB = new Color(0, 0, 0, 1),
                 Duration = TimeSpan.FromSeconds(.25)
             }, roleFlashImage);
+            */
             largeRoleIcon.color = new Color(1, 1, 1, 1);
 
 
+            /*
             Plugin.MyAnimator.AnimateGraphics(new HLSNAnimationRequest
             {
                 Type = HLSNAnimator.AnimationType.ChangeA,
@@ -2013,6 +2020,7 @@ namespace UnpredictableWaterWheel
                 ColorB = new Color(0, 0, 0, 0),
                 Duration = TimeSpan.FromSeconds(.4)
             }, roleFlashImage);
+            */
             yield return Plugin.MyAnimator.AnimateObjects(new HLSNAnimationRequest
             {
                 Type = HLSNAnimator.AnimationType.Rescale,
@@ -2042,6 +2050,7 @@ namespace UnpredictableWaterWheel
                 Vector2B = new Vector2(1.5f, 1.5f),
                 Duration = TimeSpan.FromSeconds(1)
             }, ghostRoleIcon.rectTransform);
+            //roleFlashImage.gameObject.SetActive(false);
             //wiggle
 
             yield return Plugin.MyAnimator.Animate3DObjects(new HLSNAnimationRequest

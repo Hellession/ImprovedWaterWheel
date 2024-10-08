@@ -4,7 +4,7 @@
     <TargetFramework>net46</TargetFramework>
     <AssemblyName>UnpredictableWaterWheel</AssemblyName>
     <Description>A Town of Salem mod that overhauls the Water Wheel, making it truly random for each game.</Description>
-    <Version>1.0.5</Version>
+    <Version>1.0.7</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>

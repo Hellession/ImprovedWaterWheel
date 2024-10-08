@@ -22,7 +22,7 @@ namespace UnpredictableWaterWheel
         public OddsMode oddsMode;
         public bool disabled;
         public bool debugMode = false;
-        public bool logMode = true;
+        public bool logMode = false;
         public bool enableMockGameDebug = false;
         public RoleAppearanceMode roleApparanceMode = RoleAppearanceMode.AffectedByScrolls;
 
