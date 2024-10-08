@@ -37,9 +37,9 @@ It is recommended to keep this setting at its default, it is a setting I used to
 Setting it to `true` will cause the role lots text to flash (if you enable it) with different colors, I used it together with OBS to determine how the water wheel arrowhead was placed for debugging purposes.
 
 ## logMode
-**Default: `true`**
+**Default: `false`**
 
-It is recommended to keep this setting at its default, it is a setting that helps with collecting logs about the mod.
+When enabled, this mod records a lot of information about the water wheel animation into the log file. Logging in Unity is a fairly expensive operation, so having it disabled might improve performance, but keeping it enabled is important to collect data and report bugs.
 
 Setting it to `false` will remove a lot of this mod's logs. Most of them generate right when the Water Wheel scene triggers, since that's when most of the work is done. Also, you won't see the logs anyway unless you change the BepInEx's configuration to include `Debug` severity logs!
 
